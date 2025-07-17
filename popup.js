@@ -35,7 +35,7 @@ async function loadCurrentTab() {
       document.getElementById('currentUrl').textContent = '';
     }
   } catch (error) {
-    console.error('Erreur lors du chargement de l\'onglet actuel:', error);
+    console.error('Error loading current tab:', error);
   }
 }
 
@@ -101,7 +101,7 @@ async function loadProjects() {
       noProjects.innerHTML = chrome.i18n.getMessage('noMatchingProjects') + '<br>' + chrome.i18n.getMessage('noMatchingProjectsHelper');
     }
   } catch (error) {
-    console.error('Erreur lors du chargement des projets:', error);
+    console.error('Error loading projects:', error);
   }
 }
 
@@ -126,6 +126,6 @@ async function switchToDomain(targetDomain) {
     
     window.close();
   } catch (error) {
-    console.error('Erreur lors du changement de domaine:', error);
+    console.error('Error switching domain:', error);
   }
 }

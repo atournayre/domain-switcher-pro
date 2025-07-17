@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('Domain Switcher Pro installé');
+  console.log('Domain Switcher Pro installed');
 });
 
 chrome.action.onClicked.addListener(async (tab) => {
@@ -26,13 +26,13 @@ chrome.action.onClicked.addListener(async (tab) => {
       await chrome.action.setPopup({ popup: 'popup.html' });
     }
   } catch (error) {
-    console.error('Erreur dans le service worker:', error);
+    console.error('Error in service worker:', error);
   }
 });
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'sync' && changes.projects) {
-    console.log('Projets mis à jour');
+    console.log('Projects updated');
   }
 });
 
@@ -57,7 +57,7 @@ async function switchDomain(targetDomain, preservePath = true) {
     
     await chrome.tabs.update(tab.id, { url: newUrl });
   } catch (error) {
-    console.error('Erreur lors du changement de domaine:', error);
+    console.error('Error switching domain:', error);
   }
 }
 

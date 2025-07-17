@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function localizeUI() {
-  // Localiser le titre de la page
+  // Localize page title
   document.title = chrome.i18n.getMessage('optionsTitle');
   
-  // Localiser tous les éléments avec data-i18n
+  // Localize all elements with data-i18n
   const elements = document.querySelectorAll('[data-i18n]');
   elements.forEach(element => {
     const key = element.getAttribute('data-i18n');
@@ -28,7 +28,7 @@ function localizeUI() {
     }
   });
   
-  // Localiser les placeholders
+  // Localize placeholders
   const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
   placeholderElements.forEach(element => {
     const key = element.getAttribute('data-i18n-placeholder');
@@ -85,7 +85,7 @@ async function loadProjects() {
       projectsList.appendChild(projectCard);
     });
   } catch (error) {
-    console.error('Erreur lors du chargement des projets:', error);
+    console.error('Error loading projects:', error);
     showStatus(chrome.i18n.getMessage('errorLoading'), 'error');
   }
 }
@@ -147,7 +147,7 @@ async function saveProject() {
     clearForm();
     loadProjects();
   } catch (error) {
-    console.error('Erreur lors de la sauvegarde:', error);
+    console.error('Error saving project:', error);
     showStatus(chrome.i18n.getMessage('errorSaving'), 'error');
   }
 }
@@ -195,7 +195,7 @@ async function editProject(index) {
       document.getElementById('projectName').focus();
     }
   } catch (error) {
-    console.error('Erreur lors de l\'édition:', error);
+    console.error('Error editing project:', error);
     showStatus(chrome.i18n.getMessage('errorEditing'), 'error');
   }
 }
@@ -217,7 +217,7 @@ async function deleteProject(index) {
       loadProjects();
     }
   } catch (error) {
-    console.error('Erreur lors de la suppression:', error);
+    console.error('Error deleting project:', error);
     showStatus(chrome.i18n.getMessage('errorDeleting'), 'error');
   }
 }

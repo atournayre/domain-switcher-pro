@@ -1,44 +1,45 @@
 # Domain Switcher Pro
 
-Une extension Chrome moderne qui respecte les bonnes pratiques et utilise Manifest V3 pour faciliter le passage entre différents environnements de développement.
+A modern Chrome extension that follows best practices and uses Manifest V3 to facilitate switching between different development environments.
 
-## 🚀 Fonctionnalités
+## 🚀 Features
 
-- **Commutation rapide entre domaines** : Basculez facilement entre vos environnements de développement, staging et production
-- **Préservation du chemin** : Le chemin de l'URL actuelle est automatiquement préservé lors du changement de domaine
-- **Organisation par projets** : Groupez vos domaines par projet pour une meilleure organisation
-- **Interface moderne** : Interface utilisateur claire et intuitive
-- **Manifest V3** : Conforme aux dernières exigences de Chrome pour les extensions
+- **Quick domain switching**: Easily switch between your development, staging, and production environments
+- **Path preservation**: The current URL path is automatically preserved when switching domains
+- **Project organization**: Group your domains by project for better organization
+- **Modern interface**: Clean and intuitive user interface
+- **Manifest V3**: Compliant with the latest Chrome extension requirements
+- **Multilingual support**: Available in English, French, and Spanish
 
 ## 📦 Installation
 
-### Installation manuelle pour le développement
+### Manual installation for development
 
-1. Clonez ou téléchargez ce repository
-2. Ouvrez Chrome et allez sur `chrome://extensions/`
-3. Activez le "Mode développeur" en haut à droite
-4. Cliquez sur "Charger l'extension non empaquetée"
-5. Sélectionnez le dossier contenant les fichiers de l'extension
+1. Clone or download this repository
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked extension"
+5. Select the folder containing the extension files
 
 ## 🛠️ Configuration
 
-1. Cliquez sur l'icône de l'extension dans la barre d'outils Chrome
-2. Cliquez sur "Options" pour ouvrir la page de configuration
-3. Créez un nouveau projet en entrant :
-   - **Nom du projet** : Un nom descriptif (ex: "Mon Site Web")
-   - **Domaines** : Un domaine par ligne (ex: `localhost:3000`, `staging.monsite.com`, `monsite.com`)
+1. Click the extension icon in the Chrome toolbar
+2. Click "Options" to open the configuration page
+3. Create a new project by entering:
+   - **Project name**: A descriptive name (e.g., "My Website")
+   - **Domains**: One domain per line (e.g., `localhost:3000`, `staging.mysite.com`, `mysite.com`)
 
-### Exemples de configuration
+### Configuration examples
 
-**Projet "E-commerce":**
+**"E-commerce" project:**
 ```
 localhost:3000
-dev.moncommerce.com
-staging.moncommerce.com
-moncommerce.com
+dev.mycommerce.com
+staging.mycommerce.com
+mycommerce.com
 ```
 
-**Projet "Blog":**
+**"Blog" project:**
 ```
 localhost:8080
 https://dev-blog.example.com
@@ -46,27 +47,40 @@ https://staging-blog.example.com
 https://blog.example.com
 ```
 
-## 📱 Utilisation
+## 📱 Usage
 
-1. Naviguez vers l'un des domaines configurés dans vos projets
-2. Cliquez sur l'icône Domain Switcher Pro dans la barre d'outils
-3. Sélectionnez le domaine de destination
-4. L'extension vous redirigera automatiquement en préservant le chemin actuel
+1. Navigate to one of the domains configured in your projects
+2. Click the Domain Switcher Pro icon in the toolbar
+3. Select the target domain
+4. The extension will automatically redirect you while preserving the current path
 
-## 🔧 Développement
+## 🌍 Language Support
 
-### Structure du projet
+The extension automatically adapts to your Chrome browser language:
+- **English** (default)
+- **French**
+- **Spanish**
+
+The language is automatically detected based on your browser settings. No manual selection needed!
+
+## 🔧 Development
+
+### Project structure
 
 ```
 domain-switcher/
-├── manifest.json          # Configuration Manifest V3
-├── background.js          # Service worker principal
-├── popup.html            # Interface popup
-├── popup.js              # Logique du popup
-├── options.html          # Page d'options
-├── options.js            # Logique des options
-├── content.js            # Script de contenu
-├── icons/                # Icônes de l'extension
+├── manifest.json          # Manifest V3 configuration
+├── background.js          # Main service worker
+├── popup.html            # Popup interface
+├── popup.js              # Popup logic
+├── options.html          # Options page
+├── options.js            # Options logic
+├── content.js            # Content script
+├── _locales/             # Internationalization files
+│   ├── en/
+│   ├── fr/
+│   └── es/
+├── icons/                # Extension icons
 │   ├── icon16.png
 │   ├── icon32.png
 │   ├── icon48.png
@@ -74,65 +88,94 @@ domain-switcher/
 └── README.md
 ```
 
-### Technologies utilisées
+### Technologies used
 
-- **Manifest V3** : Dernière version du format de manifest Chrome
-- **Service Workers** : Remplace les scripts de background pour de meilleures performances
-- **Chrome Storage API** : Stockage synchronisé des configurations
-- **Modern JavaScript** : ES6+ avec async/await
+- **Manifest V3**: Latest version of Chrome manifest format
+- **Service Workers**: Replaces background scripts for better performance
+- **Chrome Storage API**: Synchronized configuration storage
+- **Chrome i18n API**: Internationalization support
+- **Modern JavaScript**: ES6+ with async/await
 
-## 🔒 Sécurité et vie privée
+## 🔒 Security and Privacy
 
-- **Données locales uniquement** : Toutes les configurations sont stockées localement
-- **Permissions minimales** : L'extension ne demande que les permissions nécessaires
-- **Pas de télémétrie** : Aucune donnée n'est envoyée vers des serveurs externes
-- **Code source ouvert** : Le code est entièrement visible et auditable
+- **Local data only**: All configurations are stored locally
+- **Minimal permissions**: The extension only requests necessary permissions
+- **No telemetry**: No data is sent to external servers
+- **Open source**: Code is fully visible and auditable
+- **Secure by design**: Follows Chrome extension security best practices
 
-## 🎯 Différences avec l'ancienne extension
+## 🎯 Differences from the original extension
 
-### Améliorations
+### Improvements
 
-- ✅ **Manifest V3** : Conforme aux exigences modernes de Chrome
-- ✅ **Interface moderne** : Design amélioré et plus intuitif
-- ✅ **Meilleure performance** : Utilisation des Service Workers
-- ✅ **Sécurité renforcée** : Respect des bonnes pratiques de sécurité
-- ✅ **Validation des domaines** : Vérification des formats de domaines
-- ✅ **Gestion d'erreurs** : Meilleure gestion des cas d'erreur
+- ✅ **Manifest V3**: Compliant with modern Chrome requirements
+- ✅ **Modern interface**: Improved and more intuitive design
+- ✅ **Better performance**: Uses Service Workers
+- ✅ **Enhanced security**: Follows security best practices
+- ✅ **Domain validation**: Verification of domain formats
+- ✅ **Error handling**: Better error case management
+- ✅ **Multilingual**: Support for multiple languages
+- ✅ **Future-proof**: Ready for Chrome's upcoming changes
 
-### Fonctionnalités conservées
+### Preserved features
 
-- ✅ Commutation rapide entre environnements
-- ✅ Préservation du chemin de l'URL
-- ✅ Organisation par projets
-- ✅ Support des ports et protocoles
+- ✅ Quick switching between environments
+- ✅ URL path preservation
+- ✅ Project organization
+- ✅ Port and protocol support
 
-## 🤝 Contribution
+## 🤝 Contributing
 
-Les contributions sont les bienvenues ! N'hésitez pas à :
+Contributions are welcome! Please feel free to:
 
-1. Forker le projet
-2. Créer une branche pour votre fonctionnalité
-3. Committer vos changements
-4. Pousser vers la branche
-5. Ouvrir une Pull Request
+1. Fork the project
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-## 📄 Licence
+### Development setup
 
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+```bash
+# Clone the repository
+git clone https://github.com/atournayre/domain-switcher-pro.git
 
-## 🔄 Migration depuis l'ancienne extension
+# Load the extension in Chrome
+# 1. Go to chrome://extensions/
+# 2. Enable Developer mode
+# 3. Click "Load unpacked"
+# 4. Select the project folder
+```
 
-Si vous utilisez l'ancienne extension Domain Switcher :
+## 📄 License
 
-1. Exportez vos configurations actuelles (si possible)
-2. Installez Domain Switcher Pro
-3. Reconfigurez vos projets dans la nouvelle extension
-4. Désinstallez l'ancienne extension
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## 🔄 Migration from the original extension
+
+If you're using the original Domain Switcher extension:
+
+1. Export your current configurations (if possible)
+2. Install Domain Switcher Pro
+3. Reconfigure your projects in the new extension
+4. Uninstall the original extension
 
 ## 🆘 Support
 
-Si vous rencontrez des problèmes :
+If you encounter issues:
 
-1. Vérifiez que vous utilisez la dernière version de Chrome
-2. Consultez la console de développement pour les erreurs
-3. Ouvrez une issue sur le repository GitHub avec les détails du problème
+1. Make sure you're using the latest version of Chrome
+2. Check the developer console for errors
+3. Open an issue on the GitHub repository with problem details
+
+## 📈 Roadmap
+
+- [ ] Import/export configuration feature
+- [ ] Keyboard shortcuts
+- [ ] Custom themes
+- [ ] Bulk domain management
+- [ ] Chrome Web Store publication
+
+## 🙏 Acknowledgments
+
+This extension is inspired by the original Domain Switcher but has been completely rewritten to meet modern Chrome extension standards and best practices.

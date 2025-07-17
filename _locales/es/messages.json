@@ -1,0 +1,162 @@
+{
+  "extensionName": {
+    "message": "Domain Switcher Pro",
+    "description": "Nombre de la extensión"
+  },
+  "extensionDescription": {
+    "message": "Facilita el cambio entre diferentes entornos (dev, staging, prod) preservando la ruta de la URL",
+    "description": "Descripción de la extensión"
+  },
+  "currentDomain": {
+    "message": "Dominio actual: $DOMAIN$",
+    "description": "Etiqueta del dominio actual",
+    "placeholders": {
+      "domain": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "noProjects": {
+    "message": "No hay proyectos configurados.",
+    "description": "Mensaje cuando no hay proyectos configurados"
+  },
+  "noProjectsHelper": {
+    "message": "Haz clic en \"Opciones\" para crear tu primer proyecto.",
+    "description": "Texto de ayuda para ningún proyecto"
+  },
+  "noMatchingProjects": {
+    "message": "Ningún proyecto coincide con el dominio actual.",
+    "description": "Mensaje cuando ningún proyecto coincide con el dominio actual"
+  },
+  "noMatchingProjectsHelper": {
+    "message": "Configura tus proyectos en las opciones.",
+    "description": "Texto de ayuda para ningún proyecto coincidente"
+  },
+  "options": {
+    "message": "Opciones",
+    "description": "Texto del botón Opciones"
+  },
+  "optionsTitle": {
+    "message": "Domain Switcher Pro - Opciones",
+    "description": "Título de la página de opciones"
+  },
+  "optionsSubtitle": {
+    "message": "Configura tus proyectos y entornos para un cambio rápido",
+    "description": "Subtítulo de la página de opciones"
+  },
+  "addNewProject": {
+    "message": "Agregar nuevo proyecto",
+    "description": "Título de la sección de agregar proyecto"
+  },
+  "projectName": {
+    "message": "Nombre del proyecto",
+    "description": "Etiqueta del campo nombre del proyecto"
+  },
+  "projectNamePlaceholder": {
+    "message": "Ej: Mi Sitio Web",
+    "description": "Placeholder del nombre del proyecto"
+  },
+  "projectDomains": {
+    "message": "Dominios (uno por línea)",
+    "description": "Etiqueta del campo dominios del proyecto"
+  },
+  "projectDomainsPlaceholder": {
+    "message": "localhost:3000\nstaging.misitioweb.com\nmisitioweb.com",
+    "description": "Placeholder de los dominios del proyecto"
+  },
+  "projectDomainsHelper": {
+    "message": "Introduce un dominio por línea. Puedes incluir el protocolo (http/https) y el puerto.\nEjemplos: localhost:8080, dev.example.com, https://staging.example.com",
+    "description": "Texto de ayuda para los dominios del proyecto"
+  },
+  "createProject": {
+    "message": "Crear proyecto",
+    "description": "Texto del botón de crear proyecto"
+  },
+  "updateProject": {
+    "message": "Actualizar proyecto",
+    "description": "Texto del botón de actualizar proyecto"
+  },
+  "cancel": {
+    "message": "Cancelar",
+    "description": "Texto del botón Cancelar"
+  },
+  "configuredProjects": {
+    "message": "Proyectos configurados",
+    "description": "Título de la sección de proyectos configurados"
+  },
+  "edit": {
+    "message": "Editar",
+    "description": "Texto del botón Editar"
+  },
+  "delete": {
+    "message": "Eliminar",
+    "description": "Texto del botón Eliminar"
+  },
+  "noProjectsConfigured": {
+    "message": "No hay proyectos configurados",
+    "description": "Título del estado vacío"
+  },
+  "createFirstProject": {
+    "message": "Crea tu primer proyecto arriba para comenzar",
+    "description": "Descripción del estado vacío"
+  },
+  "projectNameRequired": {
+    "message": "El nombre del proyecto es requerido",
+    "description": "Mensaje de error para nombre de proyecto faltante"
+  },
+  "domainRequired": {
+    "message": "Al menos un dominio es requerido",
+    "description": "Mensaje de error para dominios faltantes"
+  },
+  "validDomainRequired": {
+    "message": "Al menos un dominio válido es requerido",
+    "description": "Mensaje de error para dominios inválidos"
+  },
+  "invalidDomains": {
+    "message": "Dominios inválidos: $DOMAINS$",
+    "description": "Mensaje de error para dominios inválidos",
+    "placeholders": {
+      "domains": {
+        "content": "$1",
+        "example": "dominio.invalido, otro.invalido"
+      }
+    }
+  },
+  "projectExists": {
+    "message": "Ya existe un proyecto con este nombre",
+    "description": "Mensaje de error para nombre de proyecto duplicado"
+  },
+  "projectUpdated": {
+    "message": "Proyecto actualizado exitosamente",
+    "description": "Mensaje de éxito para actualización de proyecto"
+  },
+  "projectAdded": {
+    "message": "Proyecto agregado exitosamente",
+    "description": "Mensaje de éxito para creación de proyecto"
+  },
+  "projectDeleted": {
+    "message": "Proyecto eliminado exitosamente",
+    "description": "Mensaje de éxito para eliminación de proyecto"
+  },
+  "confirmDelete": {
+    "message": "¿Estás seguro de que quieres eliminar este proyecto?",
+    "description": "Mensaje de confirmación para eliminación de proyecto"
+  },
+  "errorLoading": {
+    "message": "Error al cargar los proyectos",
+    "description": "Mensaje de error para cargar proyectos"
+  },
+  "errorSaving": {
+    "message": "Error al guardar el proyecto",
+    "description": "Mensaje de error para guardar proyecto"
+  },
+  "errorEditing": {
+    "message": "Error al editar el proyecto",
+    "description": "Mensaje de error para editar proyecto"
+  },
+  "errorDeleting": {
+    "message": "Error al eliminar el proyecto",
+    "description": "Mensaje de error para eliminar proyecto"
+  }
+}

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
+  await localizeUI();
   await loadCurrentTab();
   await loadProjects();
   
@@ -8,13 +9,30 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
+async function localizeUI() {
+  const elements = document.querySelectorAll('[data-i18n]');
+  
+  for (const element of elements) {
+    const key = element.getAttribute('data-i18n');
+    const message = chrome.i18n.getMessage(key);
+    
+    if (message) {
+      element.textContent = message;
+    }
+  }
+}
+
 async function loadCurrentTab() {
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (tab && tab.url) {
       const url = new URL(tab.url);
       const currentDomain = url.hostname;
-      document.getElementById('currentUrl').textContent = currentDomain;
+      const currentDomainSpan = document.querySelector('[data-i18n="currentDomain"]');
+      if (currentDomainSpan) {
+        currentDomainSpan.textContent = chrome.i18n.getMessage('currentDomain', [currentDomain]);
+      }
+      document.getElementById('currentUrl').textContent = '';
     }
   } catch (error) {
     console.error('Erreur lors du chargement de l\'onglet actuel:', error);
@@ -80,7 +98,7 @@ async function loadProjects() {
     
     if (projectsList.children.length === 0) {
       noProjects.style.display = 'block';
-      noProjects.innerHTML = 'Aucun projet ne correspond au domaine actuel.<br>Configurez vos projets dans les options.';
+      noProjects.innerHTML = chrome.i18n.getMessage('noMatchingProjects') + '<br>' + chrome.i18n.getMessage('noMatchingProjectsHelper');
     }
   } catch (error) {
     console.error('Erreur lors du chargement des projets:', error);

@@ -103,23 +103,23 @@
 </head>
 <body>
   <div class="header">
-    <h1>Domain Switcher Pro</h1>
+    <h1 data-i18n="extensionName">Domain Switcher Pro</h1>
   </div>
   
   <div class="current-domain" id="currentDomain">
-    Domaine actuel: <span id="currentUrl"></span>
+    <span data-i18n="currentDomain">Current domain: </span><span id="currentUrl"></span>
   </div>
   
   <div id="projectsList"></div>
   
   <div class="no-projects" id="noProjects" style="display: none;">
-    Aucun projet configuré.<br>
-    Cliquez sur "Options" pour créer votre premier projet.
+    <span data-i18n="noProjects">No projects configured.</span><br>
+    <span data-i18n="noProjectsHelper">Click on "Options" to create your first project.</span>
   </div>
   
   <a href="#" class="options-link" id="optionsLink">
     <span class="settings-icon">⚙️</span>
-    Options
+    <span data-i18n="options">Options</span>
   </a>
   
   <script src="popup.js"></script>

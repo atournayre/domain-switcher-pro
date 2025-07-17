@@ -1,6 +1,7 @@
 let editingProjectId = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+  localizeUI();
   loadProjects();
   
   document.getElementById('addProject').addEventListener('click', saveProject);
@@ -13,6 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function localizeUI() {
+  // Localiser le titre de la page
+  document.title = chrome.i18n.getMessage('optionsTitle');
+  
+  // Localiser tous les éléments avec data-i18n
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    const message = chrome.i18n.getMessage(key);
+    if (message) {
+      element.textContent = message;
+    }
+  });
+  
+  // Localiser les placeholders
+  const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+  placeholderElements.forEach(element => {
+    const key = element.getAttribute('data-i18n-placeholder');
+    const message = chrome.i18n.getMessage(key);
+    if (message) {
+      element.placeholder = message;
+    }
+  });
+}
+
 async function loadProjects() {
   try {
     const result = await chrome.storage.sync.get(['projects']);
@@ -23,8 +49,8 @@ async function loadProjects() {
     if (projects.length === 0) {
       projectsList.innerHTML = `
         <div class="empty-state">
-          <h3>Aucun projet configuré</h3>
-          <p>Créez votre premier projet ci-dessus pour commencer</p>
+          <h3 data-i18n="noProjectsConfigured">${chrome.i18n.getMessage('noProjectsConfigured')}</h3>
+          <p data-i18n="createFirstProject">${chrome.i18n.getMessage('createFirstProject')}</p>
         </div>
       `;
       return;
@@ -40,8 +66,8 @@ async function loadProjects() {
         <div class="project-header">
           <div class="project-name">${escapeHtml(project.name)}</div>
           <div class="project-actions">
-            <button class="button secondary edit-btn" data-index="${index}">Modifier</button>
-            <button class="button danger delete-btn" data-index="${index}">Supprimer</button>
+            <button class="button secondary edit-btn" data-index="${index}">${chrome.i18n.getMessage('edit')}</button>
+            <button class="button danger delete-btn" data-index="${index}">${chrome.i18n.getMessage('delete')}</button>
           </div>
         </div>
         <div class="project-domains">
@@ -60,7 +86,7 @@ async function loadProjects() {
     });
   } catch (error) {
     console.error('Erreur lors du chargement des projets:', error);
-    showStatus('Erreur lors du chargement des projets', 'error');
+    showStatus(chrome.i18n.getMessage('errorLoading'), 'error');
   }
 }
 
@@ -69,12 +95,12 @@ async function saveProject() {
   const domainsText = document.getElementById('projectDomains').value.trim();
   
   if (!name) {
-    showStatus('Le nom du projet est requis', 'error');
+    showStatus(chrome.i18n.getMessage('projectNameRequired'), 'error');
     return;
   }
   
   if (!domainsText) {
-    showStatus('Au moins un domaine est requis', 'error');
+    showStatus(chrome.i18n.getMessage('domainRequired'), 'error');
     return;
   }
   
@@ -83,7 +109,7 @@ async function saveProject() {
     .filter(domain => domain.length > 0);
   
   if (domains.length === 0) {
-    showStatus('Au moins un domaine valide est requis', 'error');
+    showStatus(chrome.i18n.getMessage('validDomainRequired'), 'error');
     return;
   }
   
@@ -109,7 +135,7 @@ async function saveProject() {
     } else {
       const existingProject = projects.find(p => p.name.toLowerCase() === name.toLowerCase());
       if (existingProject) {
-        showStatus('Un projet avec ce nom existe déjà', 'error');
+        showStatus(chrome.i18n.getMessage('projectExists'), 'error');
         return;
       }
       projects.push(newProject);
@@ -117,12 +143,12 @@ async function saveProject() {
     
     await chrome.storage.sync.set({ projects: projects });
     
-    showStatus(editingProjectId ? 'Projet mis à jour avec succès' : 'Projet ajouté avec succès', 'success');
+    showStatus(editingProjectId ? chrome.i18n.getMessage('projectUpdated') : chrome.i18n.getMessage('projectAdded'), 'success');
     clearForm();
     loadProjects();
   } catch (error) {
     console.error('Erreur lors de la sauvegarde:', error);
-    showStatus('Erreur lors de la sauvegarde du projet', 'error');
+    showStatus(chrome.i18n.getMessage('errorSaving'), 'error');
   }
 }
 
@@ -136,7 +162,7 @@ function validateDomains(domains) {
   }
   
   if (invalidDomains.length > 0) {
-    showStatus(`Domaines invalides: ${invalidDomains.join(', ')}`, 'error');
+    showStatus(chrome.i18n.getMessage('invalidDomains', [invalidDomains.join(', ')]), 'error');
     return false;
   }
   
@@ -163,19 +189,19 @@ async function editProject(index) {
       document.getElementById('projectDomains').value = project.domains.join('\n');
       
       editingProjectId = project.id;
-      document.getElementById('addProject').textContent = 'Mettre à jour le projet';
+      document.getElementById('addProject').textContent = chrome.i18n.getMessage('updateProject');
       document.getElementById('cancelEdit').style.display = 'inline-block';
       
       document.getElementById('projectName').focus();
     }
   } catch (error) {
     console.error('Erreur lors de l\'édition:', error);
-    showStatus('Erreur lors de l\'édition du projet', 'error');
+    showStatus(chrome.i18n.getMessage('errorEditing'), 'error');
   }
 }
 
 async function deleteProject(index) {
-  if (!confirm('Êtes-vous sûr de vouloir supprimer ce projet ?')) {
+  if (!confirm(chrome.i18n.getMessage('confirmDelete'))) {
     return;
   }
   
@@ -187,19 +213,19 @@ async function deleteProject(index) {
       projects.splice(index, 1);
       await chrome.storage.sync.set({ projects: projects });
       
-      showStatus('Projet supprimé avec succès', 'success');
+      showStatus(chrome.i18n.getMessage('projectDeleted'), 'success');
       loadProjects();
     }
   } catch (error) {
     console.error('Erreur lors de la suppression:', error);
-    showStatus('Erreur lors de la suppression du projet', 'error');
+    showStatus(chrome.i18n.getMessage('errorDeleting'), 'error');
   }
 }
 
 function cancelEdit() {
   editingProjectId = null;
   clearForm();
-  document.getElementById('addProject').textContent = 'Créer le projet';
+  document.getElementById('addProject').textContent = chrome.i18n.getMessage('createProject');
   document.getElementById('cancelEdit').style.display = 'none';
 }
 

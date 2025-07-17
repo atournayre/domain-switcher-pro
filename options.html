@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Domain Switcher Pro - Options</title>
+  <title data-i18n="optionsTitle">Domain Switcher Pro - Options</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -203,40 +203,40 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>Domain Switcher Pro</h1>
-      <p>Configurez vos projets et environnements pour un switching rapide</p>
+      <h1 data-i18n="extensionName">Domain Switcher Pro</h1>
+      <p data-i18n="optionsSubtitle">Configure your projects and environments for quick switching</p>
     </div>
     
     <div id="statusMessage" class="status-message" style="display: none;"></div>
     
     <div class="section">
-      <h2>Ajouter un nouveau projet</h2>
+      <h2 data-i18n="addNewProject">Add New Project</h2>
       
       <div class="form-group">
-        <label for="projectName">Nom du projet *</label>
-        <input type="text" id="projectName" placeholder="Ex: Mon Site Web">
+        <label for="projectName" data-i18n="projectName">Project Name *</label>
+        <input type="text" id="projectName" data-i18n-placeholder="projectNamePlaceholder" placeholder="Ex: My Website">
       </div>
       
       <div class="form-group">
-        <label for="projectDomains">Domaines (un par ligne) *</label>
-        <textarea id="projectDomains" class="domains-input" placeholder="localhost:3000&#10;staging.monsite.com&#10;monsite.com"></textarea>
-        <div class="help-text">
-          Entrez un domaine par ligne. Vous pouvez inclure le protocole (http/https) et le port.<br>
-          Exemples: localhost:8080, dev.example.com, https://staging.example.com
+        <label for="projectDomains" data-i18n="projectDomains">Domains (one per line) *</label>
+        <textarea id="projectDomains" class="domains-input" data-i18n-placeholder="projectDomainsPlaceholder" placeholder="localhost:3000&#10;staging.mysite.com&#10;mysite.com"></textarea>
+        <div class="help-text" data-i18n="projectDomainsHelper">
+          Enter one domain per line. You can include protocol (http/https) and port.<br>
+          Examples: localhost:8080, dev.example.com, https://staging.example.com
         </div>
       </div>
       
-      <button type="button" class="button" id="addProject">Créer le projet</button>
-      <button type="button" class="button secondary" id="cancelEdit" style="display: none;">Annuler</button>
+      <button type="button" class="button" id="addProject" data-i18n="createProject">Create Project</button>
+      <button type="button" class="button secondary" id="cancelEdit" style="display: none;" data-i18n="cancel">Cancel</button>
     </div>
     
     <div class="section">
-      <h2>Projets configurés</h2>
+      <h2 data-i18n="configuredProjects">Configured Projects</h2>
       
       <div id="projectsList" class="projects-list">
         <div class="empty-state">
-          <h3>Aucun projet configuré</h3>
-          <p>Créez votre premier projet ci-dessus pour commencer</p>
+          <h3 data-i18n="noProjectsConfigured">No projects configured</h3>
+          <p data-i18n="createFirstProject">Create your first project above to get started</p>
         </div>
       </div>
     </div>

@@ -104,26 +104,6 @@ domain-switcher/
 - **Open source**: Code is fully visible and auditable
 - **Secure by design**: Follows Chrome extension security best practices
 
-## 🎯 Differences from the original extension
-
-### Improvements
-
-- ✅ **Manifest V3**: Compliant with modern Chrome requirements
-- ✅ **Modern interface**: Improved and more intuitive design
-- ✅ **Better performance**: Uses Service Workers
-- ✅ **Enhanced security**: Follows security best practices
-- ✅ **Domain validation**: Verification of domain formats
-- ✅ **Error handling**: Better error case management
-- ✅ **Multilingual**: Support for multiple languages
-- ✅ **Future-proof**: Ready for Chrome's upcoming changes
-
-### Preserved features
-
-- ✅ Quick switching between environments
-- ✅ URL path preservation
-- ✅ Project organization
-- ✅ Port and protocol support
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to:
@@ -151,15 +131,6 @@ git clone https://github.com/atournayre/domain-switcher-pro.git
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-## 🔄 Migration from the original extension
-
-If you're using the original Domain Switcher extension:
-
-1. Export your current configurations (if possible)
-2. Install Domain Switcher Pro
-3. Reconfigure your projects in the new extension
-4. Uninstall the original extension
-
 ## 🆘 Support
 
 If you encounter issues:
@@ -178,4 +149,4 @@ If you encounter issues:
 
 ## 🙏 Acknowledgments
 
-This extension is inspired by the original Domain Switcher but has been completely rewritten to meet modern Chrome extension standards and best practices.
+Thanks to all contributors who help improve this extension!

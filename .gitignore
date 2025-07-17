@@ -99,3 +99,6 @@ Thumbs.db
 *.crx
 *.pem
 key.pem
+
+# Claude Code local settings
+.claude/settings.local.json

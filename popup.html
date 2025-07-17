@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 16px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 16px;
+      color: #1a73e8;
+      font-weight: 500;
+    }
+    
+    .current-domain {
+      background: #f8f9fa;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: #5f6368;
+    }
+    
+    .project-section {
+      margin-bottom: 16px;
+    }
+    
+    .project-name {
+      font-weight: 500;
+      color: #202124;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    
+    .domain-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .domain-item {
+      padding: 8px 12px;
+      margin: 4px 0;
+      background: #fff;
+      border: 1px solid #dadce0;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 13px;
+    }
+    
+    .domain-item:hover {
+      background: #f1f3f4;
+      border-color: #1a73e8;
+    }
+    
+    .domain-item.current {
+      background: #e8f0fe;
+      border-color: #1a73e8;
+      font-weight: 500;
+    }
+    
+    .no-projects {
+      text-align: center;
+      color: #5f6368;
+      padding: 20px;
+      font-size: 13px;
+    }
+    
+    .options-link {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      padding: 8px;
+      background: #1a73e8;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 13px;
+      transition: background 0.2s ease;
+    }
+    
+    .options-link:hover {
+      background: #1557b0;
+    }
+    
+    .settings-icon {
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Domain Switcher Pro</h1>
+  </div>
+  
+  <div class="current-domain" id="currentDomain">
+    Domaine actuel: <span id="currentUrl"></span>
+  </div>
+  
+  <div id="projectsList"></div>
+  
+  <div class="no-projects" id="noProjects" style="display: none;">
+    Aucun projet configuré.<br>
+    Cliquez sur "Options" pour créer votre premier projet.
+  </div>
+  
+  <a href="#" class="options-link" id="optionsLink">
+    <span class="settings-icon">⚙️</span>
+    Options
+  </a>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
